@@ -14,14 +14,7 @@ class ListNode {
 
 public class MergeTwoSortedLists {
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        /*
-        int order1 = 0;
-        int order2 = 0;
-        if (l1.next.val >= l1.val) order1 = 1;
-        else order1 = -1;
-        if (l2.next.val >= l2.val) order2 = 1;
-        else order2 = -1;
-        */
+
         ListNode root = null;
         if (l1==null) return l2;
         if (l2==null) return l1;
@@ -34,7 +27,7 @@ public class MergeTwoSortedLists {
             root = new ListNode(l2.val);
             l2 = l2.next;
         }
-        //start from root.next so that keep reference to root
+        //reference issue
         ListNode temp = root;
         while (l2 != null || l1 != null){
             if (l2 == null) {
@@ -78,14 +71,6 @@ public class MergeTwoSortedLists {
             c = c.next;
             d = d.next;
         }
-//        while (a!=null){
-//            System.out.print(a.val);
-//            a = a.next;
-//        }
-//        while (b!=null){
-//            System.out.print(b.val);
-//            b = b.next;
-//        }
 
         ListNode gg = mergeTwoLists(a,b);
         while (gg!=null){
