@@ -13,7 +13,7 @@ public class WordLadder {
     static HashMap <String, Integer> stringVisited = new HashMap <String, Integer>();
     static int best = 0;
 
-    public int ladderLength(String start, String end, HashSet<String> dict) {
+    public static int ladderLength(String start, String end, HashSet<String> dict) {
         if (dict.size() == 0)
             return 0;
 
