@@ -13,40 +13,33 @@ public class ReverseNodesInKGroup {
         //current inspected node
         ListNode now = start;
         //the head node of the final reversed list
-        ListNode reverseStart = null;
+        ListNode reverseStart = start;
         //the last node of the former reverse group
         ListNode lastNodeOfFormerReversedGroup = start;
         boolean done = false;
         int i = 0;
         while (!done) {
-            if (now.next == null){
-                if (i%k == 0){
-
+            now = now.next;
+            i = i+1;
+            if (i%k == 0){
+                //first node of the reversed group
+                ListNode firstNodeOftThisReversedGroup = reverseKNodes(start, k);
+                if (i == k){
+                    reverseStart = firstNodeOftThisReversedGroup;
                 }
                 else{
-                    lastNodeOfFormerReversedGroup.next = start;
-                    done = true;
+                    lastNodeOfFormerReversedGroup.next = firstNodeOftThisReversedGroup;
                 }
-
+                lastNodeOfFormerReversedGroup = start;
+                start = now;
             }
-            else{
-                now = now.next;
-                i = i+1;
-                if (i%k == 0){
-                    //first node of the reversed group
-                    ListNode firstNodeOftThisReversedGroup = reverseKNodes(start, k);
-                    System.out.println(i+"");
-                    System.out.println(now+"");
-                    if (i == k){
-                        reverseStart = firstNodeOftThisReversedGroup;
-                    }
-                    else{
-                        lastNodeOfFormerReversedGroup.next = firstNodeOftThisReversedGroup;
-                    }
-                    lastNodeOfFormerReversedGroup = start;
-                    start = now;
-                }
+            if (now == null){
+                //if not enough elements for k-group
+                if (i < k) return start;
+                lastNodeOfFormerReversedGroup.next = start;
+                done = true;
             }
+            //System.out.println(start+","+now+","+i);
         }
         return reverseStart;
     }
@@ -80,7 +73,7 @@ public class ReverseNodesInKGroup {
         e.next = f;
         f.next = g;
 
-        ListNode rHead = reverseKGroup(a,6);
+        ListNode rHead = reverseKGroup(a,7);
         while (rHead!= null){
             System.out.print(rHead);
             rHead = rHead.next;
