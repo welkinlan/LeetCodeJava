@@ -10,6 +10,12 @@ class ListNode {
         val = x;
         next = null;
     }
+
+    @Override
+    public String toString() {
+        return val+"";
+    }
+
 }
 
 public class MergeTwoSortedLists {
