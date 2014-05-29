@@ -26,7 +26,10 @@ public class LongestValidParenthses {
                 else
                 {
                     stack.pop();
-                    max = stack.isEmpty()?Math.max(max,i-start+1):Math.max(max,i-stack.peek());
+                    if (stack.isEmpty())
+                        max = Math.max(max,i-start+1); //most
+                    else
+                        max = Math.max(max,i-stack.peek());
                 }
             }
         }
@@ -35,7 +38,7 @@ public class LongestValidParenthses {
     }
 
     public static void main(String[] args){
-        System.out.print(longestValidParentheses("()())()"));
+        System.out.print(longestValidParentheses(")(())()"));
     }
 
 }
