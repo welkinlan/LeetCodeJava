@@ -19,6 +19,13 @@ public class LinkedListCycleII {
         }
         if(runner == null)
             return null;
+
+        //walker stops at b from the cycle start point
+        //set runner to the head
+        //both travels a
+        //b + a = kc
+        //0 + a = 0*c
+        //same point
         runner = head;
         while(walker!=runner)
         {
