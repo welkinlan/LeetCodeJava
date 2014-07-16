@@ -94,7 +94,7 @@ public class BinaryTreeLevelOrderTraversalII {
         r2.right = r6;
         r5.left = r7;
         r5.right = r8;
-        List<List<Integer>> res = levelOrderBottom(r);
+        List<List<Integer>> res = levelOrderBottom1(r);
 
         for (List<Integer> list:res){
             System.out.print("[");
