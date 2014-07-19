@@ -5,13 +5,14 @@ import java.util.List;
  * Created by tianlan on 7/16/2014.
  */
 public class NQueens {
-    public ArrayList<String[]> solveNQueens(int n) {
-        ArrayList<String[]> res = new ArrayList<String[]>();
+    public List<String[]> solveNQueens(int n) {
+        List<String[]> res = new ArrayList<String[]>();
         helper(n,0,new int[n], res);
         return res;
     }
-    private void helper(int n, int row, int[] columnForRow, ArrayList<String[]> res)
+    private void helper(int n, int row, int[] columnForRow, List<String[]> res)
     {
+        //add result
         if(row == n)
         {
             String[] item = new String[n];
@@ -30,6 +31,7 @@ public class NQueens {
             res.add(item);
             return;
         }
+        //consider all possibilities for current row
         for(int i=0;i<n;i++)
         {
             columnForRow[row] = i;
