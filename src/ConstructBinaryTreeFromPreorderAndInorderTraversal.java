@@ -7,9 +7,13 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         if(preorder==null || inorder==null)
             return null;
-
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for(int i=0;i<inorder.length;i++)
+        {
+            map.put(inorder[i],i);
+        }
+        return helper(preorder,0,preorder.length-1,inorder,0,inorder.length-1, map);
     }
-
     private TreeNode helper(int[] preorder, int preL, int preR, int[] inorder, int inL, int inR, HashMap<Integer, Integer> map)
     {
         if(preL>preR || inL>inR)
