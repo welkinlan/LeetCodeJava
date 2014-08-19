@@ -25,6 +25,21 @@ public class RemoveDuplicatesFromSortedList {
         return head;
     }
 
+    public ListNode deleteDuplicates1(ListNode head) {
+        if(head == null)
+            return head;
+        ListNode pre = head;
+        ListNode cur = head.next;
+        while(cur!=null)
+        {
+            if(cur.val == pre.val)
+                pre.next = cur.next;
+            else
+                pre = cur;
+            cur = cur.next;
+        }
+        return head;
+    }
     public static void main(String[] args){
         ListNode a = new ListNode(1);
         ListNode b = new ListNode(1);
