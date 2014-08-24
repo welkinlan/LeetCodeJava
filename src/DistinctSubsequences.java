@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * Created by tianlan on 8/6/2014.
  */
 public class DistinctSubsequences {
-    public int numDistinct(String S, String T) {
+    public static int numDistinct(String S, String T) {
         if(T.length()==0)
         {
             return 1;
