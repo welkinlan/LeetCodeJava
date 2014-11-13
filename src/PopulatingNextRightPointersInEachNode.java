@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * Created by tianlan on 8/6/2014.
  */
@@ -52,5 +54,10 @@ public class PopulatingNextRightPointersInEachNode {
             curHead = null;
         }
     }
+
+    public void helper (List<List<Integer>> result, ArrayList<Integer> curList, TreeNode root, int sum){
+
+    }
+
 }
 

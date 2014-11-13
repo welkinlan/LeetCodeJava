@@ -2,21 +2,29 @@
  * Created by tianlan on 5/31/14.
  */
 public class BalancedBinaryTree {
+    public boolean isBalanced(TreeNode root) {
+        if (root == null)
+            return true;
 
-    public boolean isBalanced(TreeNode root)
-    {
-        return helper(root)>=0;
+        if (getHeight(root) == -1)
+            return false;
+
+        return true;
     }
-    private int helper(TreeNode root)
-    {
-        if(root == null)
+
+    public int getHeight(TreeNode root) {
+        if (root == null)
             return 0;
-        int left = helper(root.left);
-        int right = helper(root.right);
-        if(left<0 || right<0)
+        int left = getHeight(root.left);
+        int right = getHeight(root.right);
+
+        if (left == -1 || right == -1) //left subtree or right subtree is not balanced
             return -1;
-        if(Math.abs(left-right)>=2)
+
+        if (Math.abs(left - right) > 1) { //the height of left subtree and right subtree differs than 1
             return -1;
-        return Math.max(left,right)+1;
+        }
+
+        return Math.max(left, right) + 1; //the height of the tree
     }
 }

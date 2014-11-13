@@ -37,7 +37,5 @@ public class Anagrams {
                 res.addAll(item);
         }
         return res;
-
-
     }
 }

@@ -3,16 +3,16 @@
  */
 public class BestTimeToBuyAndSellStock {
     public static int maxProfit(int[] prices) {
-        if(prices==null || prices.length==0)
-            return 0;
-        int local = 0;
-        int global = 0;
-        for(int i=0;i<prices.length-1;i++)
-        {
-            local = Math.max(local+prices[i+1]-prices[i],0);
-            global = Math.max(local, global);
+        if (prices.length == 0) return 0;
+        int min = prices[0];
+        int res = 0;
+        for (int i=1; i<prices.length; i++){
+            if (prices[i] < min) min = prices[i];
+            else if ((prices[i]-min) > res){
+                res = (prices[i]-min);
+            }
         }
-        return global;
+        return res;
     }
 
     public static void main(String[] args){
