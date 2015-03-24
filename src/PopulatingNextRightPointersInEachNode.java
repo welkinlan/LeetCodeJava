@@ -55,9 +55,6 @@ public class PopulatingNextRightPointersInEachNode {
         }
     }
 
-    public void helper (List<List<Integer>> result, ArrayList<Integer> curList, TreeNode root, int sum){
-
-    }
 
 }
 

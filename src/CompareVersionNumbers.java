@@ -40,5 +40,6 @@ public class CompareVersionNumbers {
 
     public static void main(String[] args){
         System.out.println(compareVersion("1","1.0"));
+        System.out.println('A'+24);
     }
 }
